@@ -68,7 +68,7 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
 ## Usage
 
 A FoodTruck CSV is already included at the path `priv/repo/data/`
-To ingest CSV run the ingestion tool using a data migration:
+To ingest CSV run the ingestion tool in `iex` using a data migration:
 
 ```
  FoodTrucker.Release.migrate_data()
