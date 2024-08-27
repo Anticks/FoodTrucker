@@ -1,0 +1,45 @@
+<.header>
+  Listing Food trucks
+  <:actions>
+    <.link patch={~p"/food_trucks/new"}>
+      <.button>New Food truck</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table
+  id="food_trucks"
+  rows={@streams.food_trucks}
+  row_click={fn {_id, food_truck} -> JS.navigate(~p"/food_trucks/#{food_truck}") end}
+>
+  <:col :let={{_id, food_truck}} label="Name"><%= food_truck.name %></:col>
+  <:col :let={{_id, food_truck}} label="Permit"><%= food_truck.permit %></:col>
+  <:col :let={{_id, food_truck}} label="Food item description"><%= food_truck.food_item_description %></:col>
+  <:col :let={{_id, food_truck}} label="Facility type"><%= food_truck.facility_type %></:col>
+  <:col :let={{_id, food_truck}} label="Status"><%= food_truck.status %></:col>
+  <:action :let={{_id, food_truck}}>
+    <div class="sr-only">
+      <.link navigate={~p"/food_trucks/#{food_truck}"}>Show</.link>
+    </div>
+    <.link patch={~p"/food_trucks/#{food_truck}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={{id, food_truck}}>
+    <.link
+      phx-click={JS.push("delete", value: %{id: food_truck.id}) |> hide("##{id}")}
+      data-confirm="Are you sure?"
+    >
+      Delete
+    </.link>
+  </:action>
+</.table>
+
+<.modal :if={@live_action in [:new, :edit]} id="food_truck-modal" show on_cancel={JS.patch(~p"/food_trucks")}>
+  <.live_component
+    module={FoodTruckerWeb.FoodTruckLive.FormComponent}
+    id={@food_truck.id || :new}
+    title={@page_title}
+    action={@live_action}
+    food_truck={@food_truck}
+    patch={~p"/food_trucks"}
+  />
+</.modal>
