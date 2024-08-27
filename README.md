@@ -53,7 +53,7 @@ The `FoodTrucker.Vendor.FoodTruckImporter` module is at the core of the CSV inge
 - **Handling Idempotency**: Implements checks to prevent duplicate records when the same CSV is processed multiple times.
 - **Error Handling**: Provides detailed logging and error management, allowing for easier debugging and data integrity.
 
-###Getting Started
+## Getting Started
 
 To start your Phoenix server:
 
