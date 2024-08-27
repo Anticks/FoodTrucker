@@ -25,8 +25,8 @@ erDiagram
 
     LOCATION {
         int location_id PK
-        string latitude
-        string longitude
+        float latitude
+        float longitude
         string location_description
         int truck_id FK
     }
