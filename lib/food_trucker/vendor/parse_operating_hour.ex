@@ -27,7 +27,7 @@ defmodule FoodTrucker.Vendor.ParseOperatingHour do
 
   @spec locate_times(binary()) :: list()
   @doc """
-  Parses a given string these known formats:
+  Parses a given string for these known formats:
   "Su-Fr:12AM-3AM" | "Th/Fr/Sa:10PM-12AM" | "Su-We:11PM-12AM;Fr/Sa:10PM-12AM" 
   Returns a list of operating hours that can be used for creation.
   """
