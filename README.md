@@ -19,6 +19,7 @@ erDiagram
         int truck_id PK
         string name
         string permit
+        string status
         string food_item_description
         string facility_type
     }
@@ -66,7 +67,7 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
 
 ## Usage
 
-A FoodTruck CSV is already included at the path `priv/repo/data_migrations/`
+A FoodTruck CSV is already included at the path `priv/repo/data/`
 To ingest CSV run the ingestion tool using a data migration:
 
 ```
